@@ -33,17 +33,28 @@ body {
 
 .happy-woman-day {
     color: white;
-    font-size: 50px;
+    font-size: clamp(20px, 6vw, 50px);
     position: fixed;
     top: 80px;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
+    width: 90%;
+    z-index: 1000;
+
+    /* Hiệu ứng xuất hiện */
+    opacity: 0;
+    animation: fadeDown 2s ease-out forwards;
 }
 
-@media (max-width: 768px) {
-    .happy-woman-day {
-        font-size: 28px;
-        top: 60px;
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
