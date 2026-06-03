@@ -32,29 +32,64 @@ body {
 }
 
 .happy-woman-day {
-    color: white;
-    font-size: clamp(20px, 6vw, 50px);
     position: fixed;
-    top: 80px;
+    top: 8vh;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
-    width: 90%;
-    z-index: 1000;
 
-    /* Hiệu ứng xuất hiện */
+    width: 90%;
+    text-align: center;
+
+    font-size: clamp(22px, 5vw, 42px);
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+
+    z-index: 99999;
+
     opacity: 0;
-    animation: fadeDown 2s ease-out forwards;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff69b4,
+        0 0 40px #ff69b4;
+
+    animation:
+        birthdayShow 2s ease-out 3.5s forwards,
+        birthdayGlow 2s ease-in-out 5.5s infinite alternate;
 }
 
-@keyframes fadeDown {
-    from {
+@keyframes birthdayShow {
+    0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(-30px);
+        transform: translateX(-50%) translateY(-50px) scale(0.8);
     }
-    to {
+
+    70% {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translateX(-50%) translateY(10px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes birthdayGlow {
+    from {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #ff69b4,
+            0 0 40px #ff69b4;
+    }
+
+    to {
+        text-shadow:
+            0 0 15px #fff,
+            0 0 35px #ff69b4,
+            0 0 60px #ff69b4,
+            0 0 90px #ff69b4;
     }
 }
 
